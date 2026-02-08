@@ -131,6 +131,8 @@ span::after {
 #touch3:checked + .slide {height: 150px;}
 #touch6 {position: absolute; opacity: 0; height: 0px;}    
 #touch6:checked + .slide {height: 150px;}
+#touch7 {position: absolute; opacity: 0; height: 0px;}    
+#touch7:checked + .slide {height: 150px;}
 	@media(max-width: 768px) {
       .frame {
         width: 100%;
@@ -204,15 +206,39 @@ span::after {
 	</li> 
   </ul>
 </nav>
+ <!-- Form for App Activator -->	
+<nav>
+  <label for="touch6"><span>فعال ساز اپلیکیشن کاربر</span></label>               
+  <input type="checkbox" id="touch6"> 
+  <ul class="slide">
+    <li>		
+	  <form method="post" action="USER_PANEL_SHOW_APP_PASS">
+	    <div class="text-block">
+		      <input type="submit" class="submit" value="تایید">
+	<input name="texbox_userpanel_app_pass" type="number" required class="group-num" max="99999" >شماره واحد
+	<input name="texbox_userpanel_group_numbers" type="number" required class="group-num" max="999" min="0"> &nbsp سریال موبایل
+	    </div>
+ 	 </form>
+	</li> 
+  </ul>
+</nav>
+	  <!-- Button for Getting All Passwords -->
+<nav>
+  <label for="touch7"><span>دریافت اطلاعات واحدها</span></label>               
+  <input type="checkbox" id="touch7"> 
+  <ul class="slide">
+    <li>	
+	<form method="post" action="USER_PANEL_GET_ALL_PASS">
+     <div class="text-block">
+	   <input type="submit" class="submit" value="تایید">
+		دریافت رمز تمام واحدهای مجاز
+  		 </div>
+	  </form>
+<div class="text-help">با زدن دکمه تایید می توانید لیست رمز ثابت تمام واحدها را دریافت نمایید </div>
+	</li> 
+  </ul>
+</nav> 
   </div>
-
-<div class="text-help">با فعال شدن رمز پویا، رمز ثابت تمام واحدها غیر از واحد صفر غیرفعال می شود و با غیرفعال کردن رمزپویا، رمز ثابت فعال می شود</div></li></ul></nav>
-<nav><label for="touch6"><span>فعال ساز اپلیکیشن کاربر</span></label><input type="checkbox" id="touch6"><ul class="slide"><li><form method="post" action="USER_PANEL_SHOW_APP_PASS"><div class="text-block">
-<input type="submit" class="submit" value="تایید">
-<input name="texbox_userpanel_app_pass" type="number" required class="group-num" max="99999" >شماره واحد
-<input name="texbox_userpanel_group_numbers" type="number" required class="group-num" max="999" min="0"> &nbsp سریال موبایل
-</div></form>
-
 </body>
 </html>
  )rawliteral";
@@ -381,6 +407,8 @@ span::after {
 #touch6:checked + .slide {height: 150px;}		
 #touch7 {position: absolute; opacity: 0; height: 0px;}    
 #touch7:checked + .slide {height: 180px;}		
+#touch13 {position: absolute; opacity: 0; height: 0px;}    
+#touch13:checked + .slide {height: 150px;}
 	@media(max-width: 768px) {
       .frame {
         width: 100%;
@@ -499,7 +527,7 @@ span::after {
 		<input type="submit" class="submit2" value="دریافت اطلاعات دستگاه"><strong>&nbsp</strong>
 		</div> 
       </form>
-		<div class="text-help">اطلاعات دستگاه شامل سریال دستگاه، رمز مدیر، نام و رمز وای فای است</div>
+		<div class="text-help">اطلاعات دستگاه شامل سریال، زمان، رمز مدیر، نام و رمز وای فای است</div>
 	</li> 
   </ul>
 </nav> 
@@ -517,6 +545,21 @@ span::after {
 		</div> 
       </form>
 		<div class="text-help">برای حذف تمام اطلاعات دستگاه و بازگردانی به تنظیمات پیش فرض کارخانه وارد شوید</div>
+	</li> 
+  </ul>
+</nav> 
+  <!-- Form for Uploading data -->
+<nav>
+  <label for="touch13"><span>آپلود اطلاعات گروه</span></label>               
+  <input type="checkbox" id="touch13"> 
+  <ul class="slide">
+    <li>	
+    <form method="post" action="ADMIN_PANEL_UPLOAD_FILE_0">
+      <div class="text-block">
+		<input type="submit" class="submit2" value="آپلود اطلاعات دستگاه"><strong>&nbsp</strong>
+		</div> 
+      </form>
+		<div class="text-help">فایل اطلاعات را از بخش مدیریت کاربران و بخش دریافت اطلاعات واحدها دریافت کنید و در این قسمت بارگذاری کنید</div>
 	</li> 
   </ul>
 </nav> 
@@ -581,6 +624,85 @@ R"rawliteral(
 .group-num{background-color:#FDFFE2;width:40%;height:70px;font-size:1.5em;text-align:center;margin: 10px 4% 5% 4%;}</style></head><body>
 <strong>MANAHOOR-SMART</strong><form name="form_management" method="post" action="USER_PANEL" enctype="multipart/form-data" ><input type="submit" id="user"  value="ورود به پنل مدیریت"></form><div class="frame"><p>باز کردن درب و آسانسور با اپلیکیشن</p> <form name="form_logn" method="post" action="LOGIN_PANEL_OPEN_RELAY" enctype="multipart/form-data" ><input name="text_login_panel_group_password" type="number" required class="group-num" placeholder="رمز واحد" max="99999" min="10001"><input name="text_login_panel_group_number" type="number" required class="group-num" placeholder="شماره واحد" max="999" min="0"><input name="sub_login" type="submit" id="setting" value="کلید ورود"></form></div></body></html>
   )rawliteral";
+
+const char WITE_WEB_PAGES[] PROGMEM=
+R"rawliteral(
+ 
+ <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <title>Countdown and Form Submission</title>
+  <style>
+    body {
+      font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+      text-align: center;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    
+   .title {
+      color: #333;
+		font-size: 2em;
+		text-align: center;
+    }
+    
+    #countdown {
+      font-size: 3em;
+      font-weight: bold;
+		text-align: center;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+	<div class="title"> :) لطفا صبر کنید در حال آماده سازی داده ها هستم </div>
+  <p id="countdown">6</p>
+  <form id="myForm" action="/USER_PANEL_DOWNLOAD_DATA" method="POST" style="display: none;">
+  </form>
+  <script>
+    function countdown() {
+      let counter = 6;
+      const counterElement = document.getElementById('countdown');
+      const form = document.getElementById('myForm');
+      const interval = setInterval(() => {
+        counterElement.textContent = counter;
+        counter--;
+        if (counter < 0) {
+          clearInterval(interval);
+          form.submit();
+        }
+      }, 1000);
+    }
+    countdown();
+  </script>
+</body>
+</html>
+ )rawliteral";
+
+const char WITE_GET_PASS_WEB_PAGES[] PROGMEM=
+R"rawliteral(
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</style>
+</head>
+<body>
+<h1 align="center"> :) لطفا صبر کنید در حال آماده سازی داده ها هستم </h1>
+<h1 align="center" id="countdown">20</h1>
+<form id="myForm" action="/USER_PANEL_SEND_ALL_PASS" method="POST" style="display: none;">
+</form>
+<script>
+function countdown() {let counter = 20;const counterElement = document.getElementById('countdown');const form = document.getElementById('myForm');
+const interval = setInterval(() => {counterElement.textContent = counter;counter--;
+if (counter < 0) {clearInterval(interval);form.submit();}}, 1000);}
+countdown();
+</script>
+</body>
+</html>
+ )rawliteral";
 
   
 
